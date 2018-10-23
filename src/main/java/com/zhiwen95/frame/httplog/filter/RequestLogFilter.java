@@ -1,6 +1,6 @@
-package com.turing.frame.httplog.filter;
+package com.zhiwen95.frame.httplog.filter;
 
-import com.turing.frame.httplog.BodyReaderHttpServletRequestWrapper;
+import com.zhiwen95.frame.httplog.BodyReaderHttpServletRequestWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.RegExUtils;
@@ -27,6 +27,8 @@ public class RequestLogFilter extends PostJsonRequestBodyCacheFilter implements 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        String contentType = servletRequest.getContentType();
+        log.debug("content-type: {}", contentType);
         log.debug("RequestURL\t{}{}",
                 httpServletRequest.getRequestURL(),
                 httpServletRequest.getQueryString() != null ? String.format("?%s", httpServletRequest.getQueryString()) : StringUtils.EMPTY

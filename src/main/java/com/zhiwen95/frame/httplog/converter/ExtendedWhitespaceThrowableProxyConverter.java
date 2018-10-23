@@ -1,4 +1,4 @@
-package com.turing.frame.httplog.converter;
+package com.zhiwen95.frame.httplog.converter;
 
 import ch.qos.logback.classic.pattern.ExtendedThrowableProxyConverter;
 import ch.qos.logback.classic.spi.IThrowableProxy;

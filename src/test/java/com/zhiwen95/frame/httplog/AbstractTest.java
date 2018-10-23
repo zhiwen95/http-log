@@ -1,4 +1,4 @@
-package com.turing.frame.httplog;
+package com.zhiwen95.frame.httplog;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.joran.JoranConfigurator;
@@ -16,7 +16,7 @@ import java.io.InputStream;
 public abstract class AbstractTest {
     static {
         log.info("config logback");
-        InputStream inputStream = AbstractTest.class.getResourceAsStream("/com/turing/frame/httplog/logback/default.xml");
+        InputStream inputStream = AbstractTest.class.getResourceAsStream("/com/zhiwen95/frame/httplog/logback/default.xml");
 
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
         lc.reset();

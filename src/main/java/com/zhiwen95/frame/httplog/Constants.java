@@ -1,4 +1,4 @@
-package com.turing.frame.httplog;
+package com.zhiwen95.frame.httplog;
 
 /**
  * @author weizhiwen
