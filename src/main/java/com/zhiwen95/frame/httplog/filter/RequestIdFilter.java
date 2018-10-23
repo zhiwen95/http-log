@@ -1,6 +1,6 @@
-package com.turing.frame.httplog.filter;
+package com.zhiwen95.frame.httplog.filter;
 
-import com.turing.frame.httplog.Constants;
+import com.zhiwen95.frame.httplog.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 

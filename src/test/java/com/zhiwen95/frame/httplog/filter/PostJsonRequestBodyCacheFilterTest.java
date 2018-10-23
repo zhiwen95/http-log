@@ -1,7 +1,7 @@
-package com.turing.frame.httplog.filter;
+package com.zhiwen95.frame.httplog.filter;
 
-import com.turing.frame.httplog.BodyReaderHttpServletRequestWrapper;
-import com.turing.frame.httplog.Constants;
+import com.zhiwen95.frame.httplog.BodyReaderHttpServletRequestWrapper;
+import com.zhiwen95.frame.httplog.Constants;
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
 import org.junit.Assert;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <include resource="com/turing/frame/httplog/logback/base.xml"/>
+    <include resource="com/zhiwen95/frame/httplog/logback/base.xml"/>
 
     <!--日志输出配置-->
     <root level="DEBUG">
