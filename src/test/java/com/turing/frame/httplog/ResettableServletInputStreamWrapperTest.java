@@ -28,10 +28,5 @@ public class ResettableServletInputStreamWrapperTest extends AbstractTest {
         for (int i = 0; i < data.length; i++) {
             Assert.assertEquals(data[i], result[i]);
         }
-        try {
-            throw new RuntimeException("dasd");
-        } catch (RuntimeException e) {
-            log.error("有异常", e);
-        }
     }
 }
