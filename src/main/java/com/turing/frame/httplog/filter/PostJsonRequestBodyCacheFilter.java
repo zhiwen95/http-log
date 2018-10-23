@@ -18,15 +18,13 @@ import java.io.IOException;
 @Slf4j
 public class PostJsonRequestBodyCacheFilter implements Filter {
 
-
     public void init(FilterConfig filterConfig) throws ServletException {
-
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-        if (isPostJson(httpServletRequest)) {
-            //是POST请求，且content-type:application/json
+        if (!(servletRequest instanceof BodyReaderHttpServletRequestWrapper) && isPostJson(httpServletRequest)) {
+
             log.debug("ServletRequest Convert {} to {}", servletRequest.getClass(), BodyReaderHttpServletRequestWrapper.class);
             servletRequest = new BodyReaderHttpServletRequestWrapper(httpServletRequest);
         }
@@ -34,7 +32,8 @@ public class PostJsonRequestBodyCacheFilter implements Filter {
     }
 
     protected boolean isPostJson(HttpServletRequest httpServletRequest) {
-        return StringUtils.equalsIgnoreCase(httpServletRequest.getMethod(), Constants.METHOD_POST) && StringUtils.isNotEmpty(httpServletRequest.getContentType()) && StringUtils.equalsIgnoreCase(StringUtils.split(httpServletRequest.getContentType(), Constants.MEDIA_TYPE_SEPARATOR)[0], Constants.APPLICATION_JSON_VALUE);
+        //是POST请求，且content-type:application/json
+        return StringUtils.equalsIgnoreCase(httpServletRequest.getMethod(), Constants.METHOD_POST) && StringUtils.containsIgnoreCase(httpServletRequest.getContentType(), Constants.APPLICATION_JSON_VALUE);
     }
 
     public void destroy() {

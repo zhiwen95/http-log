@@ -12,5 +12,7 @@ public class Constants {
 
     public static final String MEDIA_TYPE_SEPARATOR = ";";
     public static final String METHOD_POST = "POST";
+    public static final String METHOD_GET = "GET";
     public static final String APPLICATION_JSON_VALUE = "application/json";
+    public static final String APPLICATION_FORM_URLENCODED_VALUE = "application/x-www-form-urlencoded";
 }

@@ -3,6 +3,7 @@ package com.turing.frame.httplog.filter;
 import com.turing.frame.httplog.BodyReaderHttpServletRequestWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.*;
@@ -34,7 +35,7 @@ public class RequestLogFilter extends PostJsonRequestBodyCacheFilter implements 
             ServletInputStream inputStream = httpServletRequest.getInputStream();
             String body = IOUtils.toString(inputStream, "UTF-8");
             inputStream.reset();
-            log.debug("RequestBody\t{}", StringUtils.replaceAll(body, "( *\\n *|\\t)", ""));
+            log.debug("RequestBody\t{}", RegExUtils.replaceAll(body, "( *\\n *|\\t)", ""));
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }
